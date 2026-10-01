@@ -47,6 +47,7 @@ def test_article_chunk_selection_independent_of_email_budget(corpus, pass_name):
     root, config, _ = corpus
     config.write_text(
         config.read_text() + "\n[profile]\nqual_sample_words = 120\nqual_max_record_words = 100\n"
+        "articles_llm_eligible = true\n"
     )
     rows = article_budget_rows()
     by_id = {row["record_id"]: row for row in rows}

@@ -1,7 +1,7 @@
 from pathlib import Path
 
 from ownvoice import provenance
-from ownvoice.config import load_config
+from ownvoice.config import articles_llm_eligible, load_config
 from ownvoice.qual import chunk, ground, merge, reconcile, sample
 from ownvoice.schemas import article_records, ingest_report, records
 
@@ -48,6 +48,14 @@ def run(args):
         )
         selected = sample.select(rows, eligible, cap, config["profile"]["qual_max_record_words"])
         if getattr(args, "articles", None):
+            if not articles_llm_eligible(config):
+                raise chunk.problem(
+                    "select qual articles",
+                    args.articles,
+                    "articles_llm_eligible is not true",
+                    "[profile] articles_llm_eligible = true before article text is chunked",
+                    "set articles_llm_eligible in the config or chunk without --articles",
+                )
             articles = [
                 article_records.validate(r) for r in chunk.read_json(args.articles, lines=True)
             ]

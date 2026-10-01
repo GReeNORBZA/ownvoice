@@ -64,8 +64,10 @@ qual_max_record_words = 2000
 qual_retries = 2
 llm_ism_lexicon = ""
 # baseline_before = "2023-01-01"   # optional; no default
+# articles_llm_eligible = true      # optional; lets article and draft text reach the model
 
-# Required, complete, only when a source has llm_eligible = true.
+# Required, complete, only when a source has llm_eligible = true
+# or articles_llm_eligible = true.
 [llm]
 provider = ""
 retention_terms = ""

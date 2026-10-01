@@ -11,7 +11,7 @@ from pathlib import Path
 from statistics import quantiles
 
 from ownvoice import provenance
-from ownvoice.config import CLASSES, load_config
+from ownvoice.config import CLASSES, articles_llm_eligible, load_config
 from ownvoice.errors import DiagnosticError, ExitCode, ValidationErrors
 from ownvoice.extract import dedup
 from ownvoice.extract.scrub import sensitive, sensitive_terms
@@ -569,13 +569,19 @@ def run(args):
             for field in ("year", "weekday", "hour_bucket")
         },
     )
+    # Chain finals are article text: only articles_llm_eligible lets any of it into
+    # model-bound outputs, whatever the email sources allow.
+    articles_allowed = articles_llm_eligible(config)
     projection = project(
-        stats, eligible=bool(eligible), never_hit_min_words=config["profile"]["never_hit_min_words"]
+        stats,
+        eligible=bool(eligible),
+        never_hit_min_words=config["profile"]["never_hit_min_words"],
+        withheld=("article",) if use_finals and not articles_allowed else (),
     )
     examples = exemplars.build(rows, eligible, config["profile"], prov)
     if use_finals:
         article_examples = exemplars.select_register(
-            article_paragraphs, {"articles"}, config["profile"]
+            article_paragraphs, {"articles"} if articles_allowed else set(), config["profile"]
         )
         article_examples["selection"]["basis"] = "chain_final_paragraphs"
     else:

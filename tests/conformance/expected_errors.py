@@ -165,6 +165,10 @@ ERROR_SITES = [
         "ownvoice/commands/qual.py",
         "chunk.problem('select qual source', label, 'source report mismatched or incomplete', 'a complete report for this source', 'complete ingest before chunking')",
     ),
+    (
+        "ownvoice/commands/qual.py",
+        "chunk.problem('select qual articles', args.articles, 'articles_llm_eligible is not true', '[profile] articles_llm_eligible = true before article text is chunked', 'set articles_llm_eligible in the config or chunk without --articles')",
+    ),
     ("ownvoice/config.py", "v.error('config', 'non-table input', 'a TOML document')"),
     (
         "ownvoice/config.py",

@@ -120,6 +120,7 @@ Every key is optional. Unset keys take the defaults shown.
 | `qual_retries` | integer, 0 or more | `2` | Retries per failed qualitative chunk. |
 | `llm_ism_lexicon` | string | `""` | Optional path to a file that replaces the shipped list of LLM-typical words. |
 | `baseline_before` | string | not set | Optional `"YYYY-MM-DD"` date. When set, `profile` uses only records dated before it, and the article register is built from long emails. Leave the key out for no cutoff. |
+| `articles_llm_eligible` | boolean | not set (false) | Optional. When `true`, scrubbed text from your draft chains can reach the model: article sample chunks, article exemplars and phrase tables, and edit-delta before-and-after examples. Leave it out to keep article and draft text local. See [LLM eligibility](#llm-eligibility-and-the-llm-table). |
 
 ### LLM eligibility and the [llm] table
 
@@ -130,7 +131,12 @@ ownvoice itself makes no network calls. The skills it installs run inside your a
 
 If no source is eligible, the profile is statistics only.
 
-When any source has `llm_eligible = true`, every `[llm]` key must be a nonempty string, and `attestation` must contain a valid `YYYY-MM-DD` date. Otherwise the table is optional and each key, if present, must be a string.
+Article and draft text has its own switch, `[profile] articles_llm_eligible`, which email eligibility never implies:
+
+- Not set or `false` (the default): chain finals and drafts contribute only statistics. No article text appears in article exemplars, article phrase tables or qualitative sample chunks, and the edit-delta chains, examples and substitutions are withheld from model input. `qual chunk --articles` refuses to run.
+- `true`: scrubbed article text can appear in qualitative sample chunks (up to `qual_sample_words` words, each piece cut at `qual_max_record_words`), in up to `exemplar_words_per_register` words of article exemplars, and in up to 20 edit-delta examples of at most 60 words per side.
+
+When any source has `llm_eligible = true`, or `articles_llm_eligible = true`, every `[llm]` key must be a nonempty string, and `attestation` must contain a valid `YYYY-MM-DD` date. Otherwise the table is optional and each key, if present, must be a string.
 
 | Key | Notes |
 |-----|-------|
@@ -199,7 +205,7 @@ The set of classes is fixed. You cannot add, rename or remove classes.
 
 ## chains.toml
 
-A chain is a sequence of versions of one piece of writing, oldest first. `ownvoice edit-delta --chains chains.toml` measures what changed between versions. `ownvoice profile --articles chains.toml` uses the final version of each chain as long-form writing for the article register.
+A chain is a sequence of versions of one piece of writing, oldest first. `ownvoice edit-delta --chains chains.toml` measures what changed between versions. `ownvoice profile --articles chains.toml` uses the final version of each chain as long-form writing for the article register. Chain text stays out of model input unless `articles_llm_eligible = true`.
 
 ```toml
 schema_version = 1

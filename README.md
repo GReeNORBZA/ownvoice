@@ -29,8 +29,10 @@ The agent installs it, asks a few questions (your email addresses, and which dom
 - Write down your rules: the words you hate and how formal you are. There's an example pack of common AI tells you can copy from.
 - For articles, keep your drafts. If your drafts live in a folder or a git repository, it can compare each version with the last and learn how you edit.
 
-## Your email stays yours
+## Your writing stays yours
 
 Everything runs on your own computer, and ownvoice itself never connects to the internet. By default your AI model only sees statistics about your writing, never the text. Letting it see scrubbed samples of your sentences gives a much better profile, but you'll be asked to record your AI provider's data terms first. The scrubbing isn't perfect, though; a name that only appears in the body of an email can slip through, so only switch this on for mail you're happy to share with your provider and have the right to use.
+
+Articles work the same way. ownvoice only reads the drafts you point it at and never goes looking for the rest of your writing; it scrubs them like your email and keeps them on your machine. Unless you separately allow it, none of your article text goes to the model, and the profile learns from the numbers alone. If you do allow it, the model sees small excerpts: a few thousand words of finished pieces, no single piece longer than 2,000 words, and a handful of short before-and-after edits from your drafts. Anything you paste in when you ask it to write something new goes to the model too, as it would with any AI tool.
 
 Every setting is in [docs/configuration.md](docs/configuration.md). Development notes are in [CONTRIBUTING.md](CONTRIBUTING.md), and [SECURITY.md](SECURITY.md) explains how to report a privacy problem. MIT licensed.

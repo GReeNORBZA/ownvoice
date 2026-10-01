@@ -1,6 +1,6 @@
 [project]
 name = "ownvoice"
-version = "1.0.0"
+version = "1.0.1"
 description = "Measure a writer's voice from their own sent email and lint drafts against it"
 readme = "README.md"
 license = "MIT"

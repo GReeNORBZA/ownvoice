@@ -338,6 +338,9 @@ def test_f52_articles_whole_dispatch(corpus, monkeypatch, empty_core):
     from tests.test_delta import manifest
 
     fixture = corpus.fixture
+    fixture.config.write_text(
+        fixture.config.read_text().replace("[profile]", "[profile]\narticles_llm_eligible = true")
+    )
     chains = manifest(
         fixture, ["A prior draft.", "please check this.\n\n" + "word " * 2100], "owner"
     )
@@ -484,6 +487,11 @@ def test_article_source_label_collision_dispatch(corpus, monkeypatch, capsys, wi
     fixture.inputs(corpus.rows)
     extra = []
     if with_articles:
+        fixture.config.write_text(
+            fixture.config.read_text().replace(
+                "[profile]", "[profile]\narticles_llm_eligible = true"
+            )
+        )
         chains = manifest(fixture, ["Earlier draft.", "Published synthetic article."], "owner")
         extra = ["--articles", str(chains)]
     result = fixture.cli(*extra)
@@ -603,6 +611,9 @@ def test_f52_call_cap_plans_before_dispatch(corpus, tmp_path, monkeypatch):
     assert STAGE_Q_CALL_CAP == 68
     fixture = corpus.fixture
     fixture.config.write_text(
+        fixture.config.read_text().replace("[profile]", "[profile]\narticles_llm_eligible = true")
+    )
+    fixture.config.write_text(
         fixture.config.read_text().replace("[profile]", "[profile]\nqual_sample_words = 10")
     )
     fixture.inputs([fixture.row(21, "one two three four five six seven eight nine ten")])
@@ -650,6 +661,9 @@ def test_article_only_dispatch_reports_qualitative_mode(
     from tests.test_delta import manifest
 
     fixture = corpus.fixture
+    fixture.config.write_text(
+        fixture.config.read_text().replace("[profile]", "[profile]\narticles_llm_eligible = true")
+    )
     fixture.config.write_text(
         fixture.config.read_text().replace("[profile]", "[profile]\nqual_sample_words = 10")
     )
@@ -727,6 +741,9 @@ def test_call_cap_replanning_chunk_lifecycle(corpus, monkeypatch, reject_synthes
     from tests.test_delta import manifest
 
     fixture = corpus.fixture
+    fixture.config.write_text(
+        fixture.config.read_text().replace("[profile]", "[profile]\narticles_llm_eligible = true")
+    )
     fixture.config.write_text(
         fixture.config.read_text().replace("[profile]", "[profile]\nqual_sample_words = 10")
     )

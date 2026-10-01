@@ -341,6 +341,9 @@ def test_compare_hand_ratios_ties_masks_and_basenames(profile):
 
 def test_article_profile_measured_paragraphs_provenance_and_fallback(profile):
     profile.configure(eligible=True)
+    profile.config.write_text(
+        profile.config.read_text().replace("[profile]", "[profile]\narticles_llm_eligible = true")
+    )
     profile.inputs([profile.row(1), profile.row(2, source="current")])
     path = manifest(
         profile,

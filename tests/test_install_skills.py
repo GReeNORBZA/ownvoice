@@ -89,7 +89,7 @@ class InstallSkillsTests(unittest.TestCase):
             self.assertEqual((target / "SKILL.md").read_text(), harness + " adapter")
             self.assertEqual(
                 json.loads((target / ".ownvoice-installed").read_text()),
-                {"tool_version": "1.0.0", "git_sha": sha},
+                {"tool_version": "1.0.1", "git_sha": sha},
             )
             self.assertFalse(any(p.is_symlink() for p in target.rglob("*")))
         self.assertEqual(

@@ -5,7 +5,9 @@ import math
 from ownvoice.schemas import common, stats_llm
 
 
-def project(stats, *, eligible, never_hit_min_words):
+def project(stats, *, eligible, never_hit_min_words, withheld=()):
+    """Phrase tables carry owner text, so they need an eligible source; registers in
+    `withheld` (article chain finals without articles_llm_eligible) never get them."""
     registers = {}
     global_rates = stats["registers"]["_global"]["function_words"]
     for name, source in stats["registers"].items():
@@ -18,7 +20,7 @@ def project(stats, *, eligible, never_hit_min_words):
         row["llm_ism_hits"] = source["llm_ism_hits"][:10]
         if name == "_global" and source["never_hit_basis_words"] >= never_hit_min_words:
             row["llm_ism_never_hit"] = source["llm_ism_never_hit"]
-        if eligible:
+        if eligible and name not in withheld:
             for key in ("greetings", "signoffs"):
                 row[key] = source[key][:5]
             row["ngrams"] = {key: values[:15] for key, values in source["ngrams"].items()}

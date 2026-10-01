@@ -16,7 +16,7 @@ from pathlib import Path
 from ownvoice import provenance
 from ownvoice.cli import Parser
 from ownvoice.cli import main as ownvoice
-from ownvoice.config import load_config
+from ownvoice.config import articles_llm_eligible, load_config
 from ownvoice.errors import DiagnosticError, ExitCode, ValidationErrors, internal_error
 from ownvoice.io import (
     PRIVATE_LINE,
@@ -791,6 +791,11 @@ def build(args):
         else set()
     )
     delta = load_edit_delta(directory, stats, config=config)
+    # Article and draft text is the owner's separate opt-in, never implied by email.
+    articles_text = articles_llm_eligible(config)
+    articles_allowed = articles_text and profiled_articles is not None
+    if delta and not articles_text:
+        delta = {**delta, "chains": [], "examples": [], "substitutions": []}
     eligible = {
         source["label"]
         for source in config["source"]
@@ -813,7 +818,7 @@ def build(args):
     email_sample_words = config["profile"]["qual_sample_words"]
     planned_calls = 0
     dropped_findings = 0
-    if eligible and resume:
+    if (eligible or articles_allowed) and resume:
         # Stage Q already completed in this run; only Stage S is repeated.
         plans = [run / f"{pass_name}.manifest.json" for pass_name in ("A", "B")]
         loaded = [chunk.load(path) for path in plans]
@@ -853,9 +858,13 @@ def build(args):
         existing = run / "findings-set.json"
         findings = findings_set.validate(chunk.read_json(existing))
         groups = cross_register.run(existing, run / "cross-register.json")
-    elif eligible:
+    elif eligible or articles_allowed:
         plans, email_sample_words, planned_calls = plan_passes(
-            args.config, config, profiled_records, profiled_articles, run
+            args.config,
+            config,
+            profiled_records,
+            profiled_articles if articles_allowed else None,
+            run,
         )
         for pass_name, manifest in zip(("A", "B"), plans, strict=True):
             value, candidates, dropped = dispatch_manifest(
@@ -894,7 +903,7 @@ def build(args):
             findings = merge.run(existing, diff, existing)
         groups = cross_register.run(existing, run / "cross-register.json")
     projection = deepcopy(inputs["stats-llm.json"])
-    examples = inputs["exemplars.json"] if eligible else None
+    examples = inputs["exemplars.json"] if eligible or articles_allowed else None
     if not eligible:
         for register in projection["registers"].values():
             for key in (
@@ -912,9 +921,7 @@ def build(args):
         for name, register in examples["registers"].items():
             for item in register["items"]:
                 article_exemplar = (
-                    profiled_articles is not None
-                    and name == "article"
-                    and item["source"] == "articles"
+                    articles_allowed and name == "article" and item["source"] == "articles"
                 )
                 if item["source"] not in eligible and not article_exemplar:
                     raise chunk.problem(
@@ -953,7 +960,7 @@ def build(args):
                 config["profile"]["qual_sample_words"],
                 config["profile"]["qual_max_record_words"],
             )
-            if eligible
+            if articles_allowed
             else []
         )
         facts.update(

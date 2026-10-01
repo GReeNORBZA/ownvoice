@@ -178,6 +178,11 @@ def llm_completeness(llm):
     return missing
 
 
+def articles_llm_eligible(config):
+    """Article text reaches a model only when the owner opts in; absent means no."""
+    return config["profile"].get("articles_llm_eligible") is True
+
+
 def validate_config(data, *, path="config.toml", text=""):
     v = _Validator(path, text)
     if not isinstance(data, dict):
@@ -304,6 +309,14 @@ def validate_config(data, *, path="config.toml", text=""):
                     "profile.baseline_before",
                     'an ISO date string "YYYY-MM-DD" (omit the key for no cutoff)',
                 )
+            # Optional, no default, for the same digest reason as baseline_before.
+            if "articles_llm_eligible" in table:
+                v.check(
+                    type(table["articles_llm_eligible"]) is bool,
+                    "profile.articles_llm_eligible",
+                    "a boolean",
+                )
+                eligible |= table["articles_llm_eligible"] is True
     llm = data.get("llm", {})
     if eligible:
         missing = llm_completeness(llm)
