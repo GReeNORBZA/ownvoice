@@ -25,24 +25,28 @@ class ExportReleaseTests(unittest.TestCase):
         self.source = self.base / "source"
         run("git", "clone", "-q", "--no-local", str(ROOT), str(self.source))
         # Make the clone's HEAD match the working tree under test.
-        for path in (
-            SCRIPT,
-            ".release-exclude",
-            "ownvoice/guard/__init__.py",
-            "ownvoice/guard/rules.py",
-        ):
+        for path in (SCRIPT, "ownvoice/guard/__init__.py", "ownvoice/guard/rules.py"):
             (self.source / path).write_bytes((ROOT / path).read_bytes())
-        for internal in ("docs/frd", "docs/prompts", "docs/testing"):
-            (self.source / internal).mkdir(parents=True, exist_ok=True)
-            (self.source / internal / "note.md").write_text("internal\n")
-        self.excluded = [
-            line.strip()
-            for line in (ROOT / ".release-exclude").read_text().splitlines()
-            if line.strip() and not line.startswith("#")
-        ]
+        # The source repository's own list when it has one (a public export does not),
+        # plus a synthetic internal tree, written as the clone's .release-exclude.
+        listed = ROOT / ".release-exclude"
+        self.excluded = (
+            [
+                line.strip()
+                for line in listed.read_text().splitlines()
+                if line.strip() and not line.startswith("#")
+            ]
+            if listed.is_file()
+            else []
+        )
+        self.excluded.append("docs/internal-notes")
+        (self.source / ".release-exclude").write_text("\n".join(self.excluded) + "\n")
         for path in self.excluded:
             target = self.source / path
-            if not path.startswith("docs/"):
+            if path.startswith("docs/"):
+                target.mkdir(parents=True, exist_ok=True)
+                (target / "note.md").write_text("internal\n")
+            else:
                 target.write_text("internal\n")
         # The export is checked on the package and docs; the test tree is not needed here.
         run("git", "rm", "-rq", "tests", cwd=self.source)
