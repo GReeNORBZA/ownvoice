@@ -1,0 +1,12 @@
+{
+  "id": "F10",
+  "body": "Owner note.\n---------- Forwarded message ----------\nsecret quote",
+  "expected": "Owner note.",
+  "rules": [
+    "T2"
+  ],
+  "confidence": "high",
+  "thread": "forward",
+  "html": false,
+  "reason": null
+}

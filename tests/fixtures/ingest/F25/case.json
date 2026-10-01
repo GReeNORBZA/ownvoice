@@ -1,0 +1,12 @@
+{
+  "id": "F25",
+  "body": "Takeout owner note.",
+  "expected": "Takeout owner note.",
+  "rules": [],
+  "confidence": "high",
+  "thread": "new",
+  "html": false,
+  "reason": null,
+  "sender": "stranger@example.net",
+  "labels": "Sent"
+}

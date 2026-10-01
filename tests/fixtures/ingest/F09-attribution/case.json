@@ -1,0 +1,13 @@
+{
+  "id": "F09-attribution",
+  "body": "On Tuesday afternoon, Someone wrote:\n> first question\nFirst answer.\n> second question\nSecond answer.",
+  "expected": "First answer.\nSecond answer.",
+  "rules": [
+    "T5"
+  ],
+  "confidence": "high",
+  "thread": "reply",
+  "html": false,
+  "reason": null,
+  "inline": true
+}

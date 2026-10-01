@@ -1,0 +1,12 @@
+{
+  "id": "F05",
+  "body": "Owner note.\nOn Tuesday afternoon, Someone\n<other@example.net> wrote:\n> secret quote",
+  "expected": "Owner note.",
+  "rules": [
+    "T5"
+  ],
+  "confidence": "high",
+  "thread": "reply",
+  "html": false,
+  "reason": null
+}

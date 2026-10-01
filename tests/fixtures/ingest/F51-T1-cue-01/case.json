@@ -1,0 +1,15 @@
+{
+  "id": "F51-T1-cue-01",
+  "body": "SEE details BELOW.\n-----Original Message-----\nEarlier message.",
+  "expected": "SEE details BELOW.",
+  "rules": [
+    "T1"
+  ],
+  "confidence": "low",
+  "thread": "reply",
+  "html": false,
+  "reason": null,
+  "flags": [
+    "inline_suspected"
+  ]
+}

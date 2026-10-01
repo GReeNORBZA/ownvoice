@@ -1,0 +1,13 @@
+{
+  "id": "F51-T4-quoted",
+  "body": "See my comments below in red.\nFrom: Other\nSent: Tuesday\nTo: Owner\nSubject: Earlier\n> Earlier message.\n> More text.",
+  "expected": "See my comments below in red.",
+  "rules": [
+    "T4"
+  ],
+  "confidence": "high",
+  "thread": "reply",
+  "html": false,
+  "reason": null,
+  "flags": []
+}

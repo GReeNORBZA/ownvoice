@@ -1,0 +1,19 @@
+{
+  "Sent Items/Message00001": {
+    "Recipients.txt": "Display name: Jane Doe\nEmail address: jane@example.com\nAddress type: SMTP\nRecipient type: To\n\nDisplay name: John Roe\nEmail address: /o=ExampleCorp/ou=SecretUnit/cn=SecretPerson\nAddress type: EX\nRecipient type: Cc\n\nDisplay name: Known Person\nRecipient type: To\n",
+    "OutlookHeaders.txt": "Client submit time: Jan 20, 2026 01:30:00.000000000 UTC\nSender name: Owner\n",
+    "InternetHeaders.txt": "Message-ID: <one@example.com>\nFrom: MAILER-DAEMON\n",
+    "Message.txt": "We can review the proposal before the next meeting."
+  },
+  "Sent Items/Message00002": {
+    "Recipients.txt": "Display name: Unmapped Person\nEmail address: /O=UnknownCorp/OU=HiddenUnit/CN=HiddenPerson\nRecipient type: To\n\nDisplay name: Unknown Name\nRecipient type: Cc\n\nDisplay name: Remote Person\nEmail address: remote@unmapped.example\nRecipient type: To\n\nDisplay name: Known Person\nEmail address: known@fallback.example\nRecipient type: To\n",
+    "InternetHeaders.txt": "Message-ID: <two@example.com>\nIn-Reply-To: <one@example.com>\nDate: Tue, 20 Jan 2026 01:30:00 +0000\n",
+    "Message.html": "<p>We should confirm the updated scope before proceeding.</p>"
+  },
+  "Sent Items/Meeting00003": {"Recipients.txt": "Display name: Meeting Person\nRecipient type: To\n"},
+  "Sent Items/Sent Items": {},
+  "PrivateFolder/Message00004": {
+    "Recipients.txt": "Display name: Hidden Correspondent\nEmail address: hidden@example.org\nRecipient type: To\n",
+    "Message.txt": "Never select this item."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "F37-when",
+  "body": "When: Tuesday\nWhere: room\nmeeting sentinel",
+  "expected": null,
+  "rules": [],
+  "confidence": "high",
+  "thread": "new",
+  "html": false,
+  "reason": "non_mail_item"
+}

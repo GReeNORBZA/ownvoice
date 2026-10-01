@@ -1,0 +1,12 @@
+{
+  "id": "F32",
+  "body": "<div>Owner note.</div><div id=\"appendonsend\">secret quote</div>",
+  "expected": "Owner note.",
+  "rules": [
+    "H2"
+  ],
+  "confidence": "high",
+  "thread": "reply",
+  "html": true,
+  "reason": null
+}

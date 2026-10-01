@@ -1,0 +1,13 @@
+{
+  "id": "F51-T1-negative-03",
+  "body": "An inliner is ready.\n-----Original Message-----\nEarlier message.",
+  "expected": "An inliner is ready.",
+  "rules": [
+    "T1"
+  ],
+  "confidence": "high",
+  "thread": "reply",
+  "html": false,
+  "reason": null,
+  "flags": []
+}

@@ -1,0 +1,13 @@
+{
+  "id": "F51-T1-tail-cue",
+  "body": "Owner note.\n-----Original Message-----\nSee my comments below in red.",
+  "expected": "Owner note.",
+  "rules": [
+    "T1"
+  ],
+  "confidence": "high",
+  "thread": "reply",
+  "html": false,
+  "reason": null,
+  "flags": []
+}

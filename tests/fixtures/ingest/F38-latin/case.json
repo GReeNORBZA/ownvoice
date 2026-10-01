@@ -1,0 +1,11 @@
+{
+  "id": "F38-latin",
+  "body": "I don’t think we’re late.",
+  "expected": "I don't think we're late.",
+  "rules": [],
+  "confidence": "high",
+  "thread": "new",
+  "html": false,
+  "reason": null,
+  "latin": true
+}

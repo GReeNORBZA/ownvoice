@@ -1,0 +1,43 @@
+[project]
+name = "ownvoice"
+version = "0.0.1"
+description = "Measure a writer's voice from their own sent email and lint drafts against it"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Sigma Octans Holdings Ltd." }]
+requires-python = ">=3.12"
+dependencies = []
+keywords = ["writing", "style", "voice", "email", "llm", "lint"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Operating System :: POSIX",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Text Processing :: Linguistic",
+]
+
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project.optional-dependencies]
+dev = ["ruff"]
+
+[project.scripts]
+ownvoice = "ownvoice.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["ownvoice*"]
+
+[tool.setuptools.package-data]
+ownvoice = ["data/*.txt"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

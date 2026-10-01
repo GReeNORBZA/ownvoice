@@ -1,0 +1,10 @@
+{
+  "id": "F12",
+  "body": "<head><style>hidden</style><title>hidden</title></head><div>Owner &amp; note.</div><ul><li>One&nbsp;item</li><li><b>Two</b> items</li></ul>",
+  "expected": "Owner & note.\n- One item\n- *Two* items",
+  "rules": [],
+  "confidence": "high",
+  "thread": "new",
+  "html": true,
+  "reason": null
+}

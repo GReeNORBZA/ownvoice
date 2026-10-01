@@ -1,0 +1,15 @@
+{
+  "id": "F51-T4-cue-11",
+  "body": "Input below.\nFrom: Other\nSent: Tuesday\nTo: Owner\nSubject: Earlier\nEarlier message.",
+  "expected": "Input below.",
+  "rules": [
+    "T4"
+  ],
+  "confidence": "low",
+  "thread": "reply",
+  "html": false,
+  "reason": null,
+  "flags": [
+    "inline_suspected"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "F34",
+  "body": "<p>Owner note.</p><div style=\"border-top:solid #ccc 1px\">From: Other</div>",
+  "expected": "Owner note.",
+  "rules": [
+    "H6"
+  ],
+  "confidence": "high",
+  "thread": "reply",
+  "html": true,
+  "reason": null
+}

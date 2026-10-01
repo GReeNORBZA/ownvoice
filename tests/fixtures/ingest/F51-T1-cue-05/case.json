@@ -1,0 +1,15 @@
+{
+  "id": "F51-T1-cue-05",
+  "body": "Answer in blue.\n-----Original Message-----\nEarlier message.",
+  "expected": "Answer in blue.",
+  "rules": [
+    "T1"
+  ],
+  "confidence": "low",
+  "thread": "reply",
+  "html": false,
+  "reason": null,
+  "flags": [
+    "inline_suspected"
+  ]
+}

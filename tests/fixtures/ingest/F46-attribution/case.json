@@ -1,0 +1,13 @@
+{
+  "id": "F46-attribution",
+  "body": "Owner note.\nOn Tuesday afternoon, Someone wrote:\n> secret quote",
+  "expected": "Owner note.",
+  "rules": [
+    "T5"
+  ],
+  "confidence": "high",
+  "thread": "reply",
+  "html": false,
+  "reason": null,
+  "subject": "edited"
+}

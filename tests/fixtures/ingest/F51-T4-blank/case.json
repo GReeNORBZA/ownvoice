@@ -1,0 +1,13 @@
+{
+  "id": "F51-T4-blank",
+  "body": "See my comments below in red.\nFrom: Other\nSent: Tuesday\nTo: Owner\nSubject: Earlier\n\n",
+  "expected": "See my comments below in red.",
+  "rules": [
+    "T4"
+  ],
+  "confidence": "high",
+  "thread": "reply",
+  "html": false,
+  "reason": null,
+  "flags": []
+}

@@ -1,0 +1,13 @@
+{
+  "id": "F51-T1-ordinary",
+  "body": "Owner note.\n-----Original Message-----\nEarlier message.",
+  "expected": "Owner note.",
+  "rules": [
+    "T1"
+  ],
+  "confidence": "high",
+  "thread": "reply",
+  "html": false,
+  "reason": null,
+  "flags": []
+}

@@ -1,0 +1,13 @@
+{
+  "id": "F04",
+  "body": "Owner note.\nGet Outlook for iOS\n____________\nFrom: Other\nTo: Owner\nSubject: topic\n> secret quote",
+  "expected": "Owner note.",
+  "rules": [
+    "T3",
+    "mobile-footer"
+  ],
+  "confidence": "high",
+  "thread": "reply",
+  "html": false,
+  "reason": null
+}

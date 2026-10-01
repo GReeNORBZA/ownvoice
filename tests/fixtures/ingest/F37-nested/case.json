@@ -1,0 +1,11 @@
+{
+  "id": "F37-nested",
+  "body": "calendar sentinel",
+  "expected": null,
+  "rules": [],
+  "confidence": "high",
+  "thread": "new",
+  "html": false,
+  "reason": "non_mail_item",
+  "nested_calendar": true
+}

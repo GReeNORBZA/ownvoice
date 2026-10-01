@@ -1,0 +1,202 @@
+{
+  "F01": {
+    "test": "tests.test_ingest_extract::ExtractionTests::test_fixture_exact_outputs",
+    "fixtures": "ingest"
+  },
+  "F02": {
+    "test": "tests.test_ingest_extract::ExtractionTests::test_fixture_exact_outputs",
+    "fixtures": "ingest"
+  },
+  "F03": {
+    "test": "tests.test_ingest_extract::ExtractionTests::test_fixture_exact_outputs",
+    "fixtures": "ingest"
+  },
+  "F04": {
+    "test": "tests.test_ingest_extract::ExtractionTests::test_fixture_exact_outputs",
+    "fixtures": "ingest"
+  },
+  "F05": {
+    "test": "tests.test_ingest_extract::ExtractionTests::test_fixture_exact_outputs",
+    "fixtures": "ingest"
+  },
+  "F06": {
+    "test": "tests.test_ingest_extract::ExtractionTests::test_fixture_exact_outputs",
+    "fixtures": "ingest"
+  },
+  "F07": {
+    "test": "tests.test_ingest_extract::ExtractionTests::test_fixture_exact_outputs",
+    "fixtures": "ingest"
+  },
+  "F08": {
+    "test": "tests.test_ingest_extract::ExtractionTests::test_fixture_exact_outputs",
+    "fixtures": "ingest"
+  },
+  "F09": {
+    "test": "tests.test_ingest_extract::ExtractionTests::test_fixture_exact_outputs",
+    "fixtures": "ingest"
+  },
+  "F10": {
+    "test": "tests.test_ingest_extract::ExtractionTests::test_fixture_exact_outputs",
+    "fixtures": "ingest"
+  },
+  "F11": {
+    "test": "tests.test_ingest_extract::ExtractionTests::test_fixture_exact_outputs",
+    "fixtures": "ingest"
+  },
+  "F12": {
+    "test": "tests.test_ingest_extract::ExtractionTests::test_fixture_exact_outputs",
+    "fixtures": "ingest"
+  },
+  "F13": {
+    "test": "tests.test_scrub::ScrubIngestTests::test_all_card_fixtures_exact_and_AC3_scan",
+    "fixtures": "scrub"
+  },
+  "F14": {
+    "test": "tests.test_scrub::ScrubIngestTests::test_all_card_fixtures_exact_and_AC3_scan",
+    "fixtures": "scrub"
+  },
+  "F15": {
+    "test": "tests.test_scrub::ScrubIngestTests::test_all_card_fixtures_exact_and_AC3_scan",
+    "fixtures": "scrub"
+  },
+  "F16": {
+    "test": "tests.test_ingest_extract::ExtractionTests::test_fixture_exact_outputs",
+    "fixtures": "ingest"
+  },
+  "F17": {
+    "test": "tests.test_ingest_extract::ExtractionTests::test_fixture_exact_outputs",
+    "fixtures": "ingest"
+  },
+  "F18": {
+    "test": "tests.test_ingest_extract::ExtractionTests::test_fixture_exact_outputs",
+    "fixtures": "ingest"
+  },
+  "F19": {
+    "test": "tests.test_scrub::ScrubIngestTests::test_all_card_fixtures_exact_and_AC3_scan",
+    "fixtures": "scrub"
+  },
+  "F20": {
+    "test": "tests.test_scrub::ScrubIngestTests::test_all_card_fixtures_exact_and_AC3_scan",
+    "fixtures": "scrub"
+  },
+  "F21": {
+    "test": "tests.test_scrub::ScrubIngestTests::test_all_card_fixtures_exact_and_AC3_scan",
+    "fixtures": "scrub"
+  },
+  "F22": {
+    "test": "tests.test_ingest_extract::ExtractionTests::test_fixture_exact_outputs",
+    "fixtures": "ingest"
+  },
+  "F23": {
+    "test": "tests.test_ingest_extract::ExtractionTests::test_fixture_exact_outputs",
+    "fixtures": "ingest"
+  },
+  "F24": {
+    "test": "tests.test_scrub::ScrubIngestTests::test_all_card_fixtures_exact_and_AC3_scan",
+    "fixtures": "scrub"
+  },
+  "F25": {
+    "test": "tests.test_ingest_extract::ExtractionTests::test_fixture_exact_outputs",
+    "fixtures": "ingest"
+  },
+  "F26": {
+    "test": "tests.test_pst_ingest::PstTests::test_F26_F36_readpst_folder_only_and_names"
+  },
+  "F27": {
+    "test": "tests.test_ingest_cli::IngestCliTests::test_F27_aggregate_preflight_no_outputs"
+  },
+  "F28": {
+    "test": "tests.test_pst_ingest::PstTests::test_F28_partial_and_item_reject"
+  },
+  "F29": {
+    "test": "tests.test_resume::ResumeTests::test_F29_sigkill_then_new_process_truncates_uncommitted_tail"
+  },
+  "F30": {
+    "test": "tests.test_scrub::ScrubIngestTests::test_all_card_fixtures_exact_and_AC3_scan",
+    "fixtures": "scrub"
+  },
+  "F31": {
+    "test": "tests.test_ingest_cli::IngestCliTests::test_F31_git_boundaries_and_explicit_source_exception"
+  },
+  "F32": {
+    "test": "tests.test_ingest_extract::ExtractionTests::test_fixture_exact_outputs",
+    "fixtures": "ingest"
+  },
+  "F33": {
+    "test": "tests.test_ingest_extract::ExtractionTests::test_fixture_exact_outputs",
+    "fixtures": "ingest"
+  },
+  "F34": {
+    "test": "tests.test_ingest_extract::ExtractionTests::test_fixture_exact_outputs",
+    "fixtures": "ingest"
+  },
+  "F35": {
+    "test": "tests.test_ingest_extract::ExtractionTests::test_fixture_exact_outputs",
+    "fixtures": "ingest"
+  },
+  "F36": {
+    "test": "tests.test_pst_ingest::PstTests::test_F26_F36_readpst_folder_only_and_names"
+  },
+  "F37": {
+    "test": "tests.test_ingest_extract::ExtractionTests::test_fixture_exact_outputs",
+    "fixtures": "ingest"
+  },
+  "F38": {
+    "test": "tests.test_ingest_extract::ExtractionTests::test_fixture_exact_outputs",
+    "fixtures": "ingest"
+  },
+  "F39": {
+    "test": "tests.test_ingest_extract::ExtractionTests::test_fixture_exact_outputs",
+    "fixtures": "ingest"
+  },
+  "F40": {
+    "test": "tests.test_scrub::ScrubIngestTests::test_all_card_fixtures_exact_and_AC3_scan",
+    "fixtures": "scrub"
+  },
+  "F41": {
+    "test": "tests.test_scrub::ScrubIngestTests::test_all_card_fixtures_exact_and_AC3_scan",
+    "fixtures": "scrub"
+  },
+  "F42": {
+    "test": "tests.test_ingest_extract::ExtractionTests::test_fixture_exact_outputs",
+    "fixtures": "ingest"
+  },
+  "F43": {
+    "test": "tests.test_scrub::ScrubIngestTests::test_all_card_fixtures_exact_and_AC3_scan",
+    "fixtures": "scrub"
+  },
+  "F44": {
+    "test": "tests.test_scrub::ScrubIngestTests::test_all_card_fixtures_exact_and_AC3_scan",
+    "fixtures": "scrub"
+  },
+  "F45": {
+    "test": "tests.test_scrub::ScrubIngestTests::test_all_card_fixtures_exact_and_AC3_scan",
+    "fixtures": "scrub"
+  },
+  "F46": {
+    "test": "tests.test_ingest_extract::ExtractionTests::test_fixture_exact_outputs",
+    "fixtures": "ingest"
+  },
+  "F47": {
+    "test": "tests.test_pst_ingest::PstTests::test_F47_F50_wiring_privacy_and_cleanup"
+  },
+  "F48": {
+    "test": "tests.test_resume::ResumeTests::test_F48_domain_map_reparse_and_unchanged_noop"
+  },
+  "F49": {
+    "test": "tests.test_dispatch_contract::test_f49_whole_dispatch_both_adapters"
+  },
+  "F50": {
+    "test": "tests.test_pst_ingest::PstTests::test_F47_F50_wiring_privacy_and_cleanup"
+  },
+  "F52": {
+    "test": "tests.test_dispatch_contract::test_f52_articles_whole_dispatch"
+  },
+  "F53": {
+    "test": "tests.test_write_in_voice_dryrun::BriefSectionsTests::test_f53_exact_sections_for_each_register"
+  },
+  "F51": {
+    "test": "tests.test_ingest_extract::ExtractionTests::test_F51_inline_cue_contract",
+    "fixtures": "ingest"
+  }
+}

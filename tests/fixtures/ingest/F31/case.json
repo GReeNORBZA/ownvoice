@@ -1,0 +1,4 @@
+{
+  "integration": "F31",
+  "note": "Filesystem arrangement is constructed in test_ingest_cli.py."
+}

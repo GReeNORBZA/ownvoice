@@ -1,0 +1,12 @@
+{
+  "id": "F03-bold",
+  "body": "Owner note.\n*From:* Other <other@example.net>\n*Sent:* yesterday\n*To:* Owner\n*Subject:* topic\n> secret quote",
+  "expected": "Owner note.",
+  "rules": [
+    "T4"
+  ],
+  "confidence": "high",
+  "thread": "reply",
+  "html": false,
+  "reason": null
+}

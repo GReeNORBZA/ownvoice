@@ -1,0 +1,12 @@
+{
+  "id": "H7",
+  "body": "<p>Owner note.</p><blockquote>quote</blockquote><p>Owner continuation.</p>",
+  "expected": "Owner note.",
+  "rules": [
+    "H7"
+  ],
+  "confidence": "low",
+  "thread": "reply",
+  "html": true,
+  "reason": null
+}

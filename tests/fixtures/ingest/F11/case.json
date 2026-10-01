@@ -1,0 +1,10 @@
+{
+  "id": "F11",
+  "body": "Begin forwarded message:\nsecret quote",
+  "expected": null,
+  "rules": [],
+  "confidence": "high",
+  "thread": "new",
+  "html": false,
+  "reason": "empty_after_strip"
+}

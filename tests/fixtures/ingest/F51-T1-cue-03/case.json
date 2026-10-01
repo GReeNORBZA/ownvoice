@@ -1,0 +1,15 @@
+{
+  "id": "F51-T1-cue-03",
+  "body": "Refer to details below.\n-----Original Message-----\nEarlier message.",
+  "expected": "Refer to details below.",
+  "rules": [
+    "T1"
+  ],
+  "confidence": "low",
+  "thread": "reply",
+  "html": false,
+  "reason": null,
+  "flags": [
+    "inline_suspected"
+  ]
+}

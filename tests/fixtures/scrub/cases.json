@@ -1,0 +1,20 @@
+[
+  {"id":"F13", "body":"Please review this.\n-- \nPrivate Signature\n+1 780 555 1234", "text":"Please review this."},
+  {"id":"F14", "repeat":12, "body":"Please review the report.\n\nRegards,\nOwner\nSenior Consultant\nSecret Company\nhttps://private.example.net", "text":"Please review the report.\n\nRegards,\nOwner", "signoff":"regards", "template":true, "rules":["signature-fingerprint"]},
+  {"id":"F15", "body":"Please reply soon.\n\nThanks,\nOwner\n\nThis confidential message is for the intended recipient only and any other person must remove this message from their system and contact the sender without sharing the contents of this message with any other person.", "text":"Please reply soon.\n\nThanks,\nOwner", "signoff":"thanks", "rules":["legal-disclaimer"]},
+  {"id":"F19", "body":"Hi Jane, thanks for this.\nPlease ask Rowan to reply.", "text":"Hi [NAME], thanks for this.\nPlease ask [NAME] to reply.", "greeting":"Hi [NAME],", "counts":{"greeting_names":1,"lexicon_names":1}},
+  {"id":"F20", "body":"Please ask Zorvyn to reply.", "text":"Please ask Zorvyn to reply.", "residual":["Zorvyn"], "limit":"Absent from all headers: retained and explicitly residual, never silently safe."},
+  {"id":"F21", "body":"Please confirm the date.", "text":"Please confirm the date.", "cross_duplicate":true},
+  {"id":"F24", "repeat":3, "body":"Please send the final report.", "text":"Please send the final report.", "template":true},
+  {"id":"F30", "body":"Please confirm the time.", "text":"Please confirm the time.", "cross_duplicate":true},
+  {"id":"F40", "repeat":2, "same_id":true, "body":"Please keep the first reply.", "text":"Please keep the first reply.", "duplicates":1},
+  {"id":"F41", "repeat":2, "no_id":true, "body":"Please send it.", "text":"Please send it."},
+  {"id":"F43-inline", "body":"Hi Jane, thanks for this", "text":"Hi [NAME], thanks for this", "greeting":"Hi [NAME],", "counts":{"greeting_names":1}},
+  {"id":"F43-group", "body":"Morning all,\nPlease reply.", "text":"Morning all,\nPlease reply.", "greeting":"Morning all,"},
+  {"id":"F43-bare", "body":"Jane,\nPlease reply.", "text":"[NAME],\nPlease reply.", "greeting":"[NAME],", "counts":{"greeting_names":1}},
+  {"id":"F43-title", "body":"Dear Dr Roe,\nPlease reply.", "text":"Dear [NAME],\nPlease reply.", "greeting":"Dear [NAME],", "counts":{"greeting_names":1}},
+  {"id":"F44-sentence", "repeat":15, "body":"Please keep this owner sentence.", "text":"Please keep this owner sentence.", "template":true},
+  {"id":"F44-year", "repeat":10, "year":2024, "body":"Please review this year.\n\nRegards,\nOwner\nFormer Consultant\nFormer Company", "text":"Please review this year.\n\nRegards,\nOwner", "signoff":"regards", "template":true, "rules":["signature-fingerprint"]},
+  {"id":"F45", "body":"Bill can reply. Please ask Bill about the bill.", "text":"Bill can reply. Please ask [NAME] about the bill.", "counts":{"lexicon_names":1}, "residual":["Bill"], "limit":"English-word name: sentence-initial retained and residual, mid-sentence masked, lowercase retained."},
+  {"id":"AC18", "body":"Please review the diagnosis.", "text":"Please review the diagnosis.", "sensitive":true}
+]

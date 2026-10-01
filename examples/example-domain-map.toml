@@ -1,0 +1,31 @@
+# Example recipient map for ownvoice. Copy to ~/.config/ownvoice/domain-map.toml
+# and replace the entries with your own correspondents. Keep the real file
+# private and outside every git working tree.
+schema_version = 1
+
+# Optional. If present, each list must contain every class exactly once.
+# They are shown here with their default values.
+classes = ["personal", "professional-warm", "colleague", "client", "vendor", "cold", "group", "unknown"]
+precedence = ["cold", "client", "vendor", "professional-warm", "colleague", "personal", "unknown"]
+
+# A message with this many To + Cc (+ Bcc) recipients or more is classed "group".
+group_threshold = 4
+
+[addresses]
+# Exact address to class. Wins over [domains].
+"alex@example.net" = "personal"
+
+[domains]
+# Domain to class. The longest matching suffix wins, so a subdomain
+# such as mail.example.com also matches "example.com".
+"example.com" = "client"
+"supplier.example.org" = "vendor"
+
+[x500]
+# Legacy Exchange recipients recorded only as an X.500 DN (/O=<org>/OU=.../CN=...).
+# Key is the /O= organisation value, matched case-insensitively.
+"Example Org" = "colleague"
+
+[names]
+# Display name to class, exact and case-insensitive. Used when no address matches.
+"Alex Example" = "professional-warm"

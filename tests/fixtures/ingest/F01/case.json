@@ -1,0 +1,12 @@
+{
+  "id": "F01",
+  "body": "Owner note.\n-----Original Message-----\n> secret quote",
+  "expected": "Owner note.",
+  "rules": [
+    "T1"
+  ],
+  "confidence": "high",
+  "thread": "reply",
+  "html": false,
+  "reason": null
+}

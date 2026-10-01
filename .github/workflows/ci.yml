@@ -1,0 +1,83 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  # uv installs and manages Python 3.12 itself; no container override.
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        run: |
+          set -euo pipefail
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Run tests
+        run: |
+          set -euo pipefail
+          uv run --python 3.12 --with pytest --with ruff python -m pytest -q
+
+      - name: Lint (ruff)
+        run: |
+          set -euo pipefail
+          uv run --python 3.12 --with ruff ruff check .
+          uv run --python 3.12 --with ruff ruff format --check .
+
+      - name: Compile-check ownvoice package
+        run: |
+          set -euo pipefail
+          uv run --python 3.12 python3 -m compileall -q ownvoice
+
+  guard:
+    name: Publish-boundary guard
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        run: |
+          set -euo pipefail
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      # CI has no private names list. Release and local hooks supply it.
+      - name: Check publish boundary and install hook
+        run: |
+          set -euo pipefail
+          uv run --python 3.12 ownvoice guard --tree .
+          uv run --python 3.12 bash scripts/install-hooks.sh
+
+  gate:
+    name: Gate
+    if: always()
+    needs: [test, guard]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require all checks
+        env:
+          TEST_RESULT: ${{ needs.test.result }}
+          GUARD_RESULT: ${{ needs.guard.result }}
+        run: |
+          set -euo pipefail
+          if [ "$TEST_RESULT" != success ] || [ "$GUARD_RESULT" != success ]; then
+            echo "Aggregate CI for $GITHUB_SHA: test=$TEST_RESULT guard=$GUARD_RESULT; expected success for both; inspect the test and guard job logs."
+            exit 1
+          fi

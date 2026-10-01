@@ -1,0 +1,13 @@
+{
+  "id": "F07",
+  "body": "<p>Owner note.</p><p>Sent from my iPhone</p><blockquote type=\"cite\">secret quote</blockquote>",
+  "expected": "Owner note.",
+  "rules": [
+    "H4",
+    "mobile-footer"
+  ],
+  "confidence": "high",
+  "thread": "reply",
+  "html": true,
+  "reason": null
+}

@@ -1,0 +1,15 @@
+{
+  "id": "F35",
+  "body": "Owner note.\nAm Dienstag schrieb jemand:\nFrom: Other\nNicht zitierter Text.",
+  "expected": "Owner note.",
+  "rules": [
+    "T7"
+  ],
+  "confidence": "high",
+  "thread": "new",
+  "html": false,
+  "reason": null,
+  "patterns": [
+    "^Am .* schrieb jemand:$"
+  ]
+}

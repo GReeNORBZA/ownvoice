@@ -1,0 +1,15 @@
+{
+  "id": "F51-T4-cue-13",
+  "body": "Added in-line.\nFrom: Other\nSent: Tuesday\nTo: Owner\nSubject: Earlier\nEarlier message.",
+  "expected": "Added in-line.",
+  "rules": [
+    "T4"
+  ],
+  "confidence": "low",
+  "thread": "reply",
+  "html": false,
+  "reason": null,
+  "flags": [
+    "inline_suspected"
+  ]
+}

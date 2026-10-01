@@ -1,0 +1,11 @@
+{
+  "id": "F42-Spam",
+  "body": "excluded sentinel",
+  "expected": null,
+  "rules": [],
+  "confidence": "high",
+  "thread": "new",
+  "html": false,
+  "reason": "excluded_label",
+  "labels": "Sent, Spam"
+}

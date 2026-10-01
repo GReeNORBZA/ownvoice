@@ -1,0 +1,11 @@
+{
+  "id": "F23-partial",
+  "body": "A sufficiently long owner sentence with one bad byte at the end: �",
+  "expected": "A sufficiently long owner sentence with one bad byte at the end: �",
+  "rules": [],
+  "confidence": "high",
+  "thread": "new",
+  "html": false,
+  "reason": null,
+  "bad_bytes": true
+}

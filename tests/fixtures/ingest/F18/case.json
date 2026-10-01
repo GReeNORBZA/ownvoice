@@ -1,0 +1,11 @@
+{
+  "id": "F18",
+  "body": "Owner note.\nAm Dienstag schrieb jemand:\nFrom: Other\nNicht zitierter Text.",
+  "expected": "Owner note.\nAm Dienstag schrieb jemand:\nFrom: Other\nNicht zitierter Text.",
+  "scrubbed_expected": "Owner note.\nAm Dienstag schrieb jemand:\nFrom: [NAME]\nNicht zitierter Text.",
+  "rules": [],
+  "confidence": "low",
+  "thread": "new",
+  "html": false,
+  "reason": null
+}

@@ -1,0 +1,11 @@
+{
+  "id": "F09",
+  "body": "> first question\nFirst answer.\n> second question\nSecond answer.",
+  "expected": "First answer.\nSecond answer.",
+  "rules": [],
+  "confidence": "high",
+  "thread": "new",
+  "html": false,
+  "reason": null,
+  "inline": true
+}

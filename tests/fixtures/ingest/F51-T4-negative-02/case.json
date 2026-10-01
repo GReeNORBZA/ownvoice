@@ -1,0 +1,13 @@
+{
+  "id": "F51-T4-negative-02",
+  "body": "See xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx below.\nFrom: Other\nSent: Tuesday\nTo: Owner\nSubject: Earlier\nEarlier message.",
+  "expected": "See xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx below.",
+  "rules": [
+    "T4"
+  ],
+  "confidence": "high",
+  "thread": "reply",
+  "html": false,
+  "reason": null,
+  "flags": []
+}

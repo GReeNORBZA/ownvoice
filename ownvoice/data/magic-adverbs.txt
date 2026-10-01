@@ -1,0 +1,12 @@
+# Mood adverbs for the ai.magic_adverb_rate density metric (generic research list).
+softly
+gently
+deeply
+barely
+subtly
+faintly
+fundamentally
+remarkably
+arguably
+essentially
+inherently

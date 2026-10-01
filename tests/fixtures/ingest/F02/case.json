@@ -1,0 +1,12 @@
+{
+  "id": "F02",
+  "body": "<p>Owner note.</p><hr><div id=\"divRplyFwdMsg\">secret quote</div><p>tail</p>",
+  "expected": "Owner note.",
+  "rules": [
+    "H1"
+  ],
+  "confidence": "high",
+  "thread": "reply",
+  "html": true,
+  "reason": null
+}

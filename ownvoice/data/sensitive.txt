@@ -1,0 +1,23 @@
+# Generic health and financial sensitivity, enabled by default (DD19).
+health
+diagnosis
+diagnosed
+medication
+prescription
+patient
+medical
+illness
+treatment
+therapy
+cancer
+pregnant
+pregnancy
+account
+balance
+banking
+salary
+debt
+insurance
+policy number
+credit card
+social insurance

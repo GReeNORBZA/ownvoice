@@ -1,0 +1,10 @@
+{
+  "id": "F34-near",
+  "body": "<p>Owner note.</p><div style=\"border-top:solid #ccc 1px\">A decorative owner rule.</div>",
+  "expected": "Owner note.\nA decorative owner rule.",
+  "rules": [],
+  "confidence": "high",
+  "thread": "new",
+  "html": true,
+  "reason": null
+}

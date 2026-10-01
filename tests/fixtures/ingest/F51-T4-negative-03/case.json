@@ -1,0 +1,13 @@
+{
+  "id": "F51-T4-negative-03",
+  "body": "An inliner is ready.\nFrom: Other\nSent: Tuesday\nTo: Owner\nSubject: Earlier\nEarlier message.",
+  "expected": "An inliner is ready.",
+  "rules": [
+    "T4"
+  ],
+  "confidence": "high",
+  "thread": "reply",
+  "html": false,
+  "reason": null,
+  "flags": []
+}

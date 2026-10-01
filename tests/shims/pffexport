@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+"""Synthetic export binary, asserting C6's exact command contract."""
+import json
+import os
+import sys
+from pathlib import Path
+
+if sys.argv[1:] == ["-V"]:
+    print("pffexport 20180714")
+    sys.exit(0)
+assert sys.argv[1:8] == ["-m", "items", "-f", "text", "-q", "-t", sys.argv[7]]
+assert len(sys.argv) == 9
+assert Path(sys.argv[7]).name == "pst"
+assert Path(sys.argv[8]).read_bytes().startswith(b"!BDN")
+if os.environ.get("PST_FAIL"):
+    print("Error opening File", file=sys.stderr)
+    sys.exit(1)
+root = Path(sys.argv[7] + ".export")
+fixture = Path(__file__).resolve().parents[1] / "fixtures/pffexport/tree.json"
+for name, files in json.loads(fixture.read_text()).items():
+    folder = root / name
+    folder.mkdir(parents=True, exist_ok=True)
+    for key, value in files.items():
+        (folder / key).write_text(value)
+if os.environ.get("PST_FOLDER_ERROR"):
+    folder = root / "Sent/Unreadable"
+    folder.mkdir(parents=True)
+    folder.chmod(0)
+if os.environ.get("PST_ITEM_ERROR"):
+    folder = root / "Sent Items/Message00005"
+    folder.mkdir()
+    folder.chmod(0)

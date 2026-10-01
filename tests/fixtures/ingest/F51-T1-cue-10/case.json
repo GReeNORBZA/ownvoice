@@ -1,0 +1,15 @@
+{
+  "id": "F51-T1-cue-10",
+  "body": "Thoughts in yellow.\n-----Original Message-----\nEarlier message.",
+  "expected": "Thoughts in yellow.",
+  "rules": [
+    "T1"
+  ],
+  "confidence": "low",
+  "thread": "reply",
+  "html": false,
+  "reason": null,
+  "flags": [
+    "inline_suspected"
+  ]
+}

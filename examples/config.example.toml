@@ -1,0 +1,73 @@
+# Example ownvoice configuration. Copy to ~/.config/ownvoice/config.toml (or
+# point OWNVOICE_CONFIG at your copy) and replace every value.
+# Keep the real file private and outside every git working tree.
+# Relative paths below resolve against the directory holding this file.
+schema_version = 1
+
+[owner]
+addresses = ["alex@example.com", "alex.example@example.org"]  # your From: addresses
+names = ["Alex", "Alex Example"]                              # your own name forms; never masked
+timezone = "Europe/London"                                    # IANA key for weekday and hour buckets
+
+[paths]
+work_dir = "~/.local/share/ownvoice"                        # private outputs
+domain_map = "~/.config/ownvoice/domain-map.toml"          # recipient classes
+editorial_rules = "~/.config/ownvoice/editorial-rules.md"  # written by scripts/install-skills.sh
+
+# One [[source]] table per mailbox. Order sets duplicate priority.
+[[source]]
+label = "personal-mail"                 # lowercase letters, digits and hyphens; 1 to 32 characters
+kind = "mbox"                           # pst, mbox or eml
+path = "~/mail/sent.mbox"
+owner_addresses = ["alex@example.net"]  # extra From: addresses for this source only
+# Turning this on means the scrubbed text of this source (exemplars, phrase
+# tables and qualitative sample chunks) is handed by the ownvoice skills to the
+# model provider your agent harness uses. ownvoice itself makes no network calls.
+# Setting it to true requires a complete [llm] table below.
+llm_eligible = false
+
+[[source]]
+label = "work-archive"
+kind = "pst"
+path = "~/mail/sent.pst"
+reader = "pffexport"                    # pst only: "pffexport" (default) or "readpst"
+sent_folders = ["Sent Items"]           # pst only in practice; overrides [ingest].sent_folders
+era = { from_year = 2015, to_year = 2020 }  # records dated outside these years are rejected
+timezone = "America/New_York"           # overrides [owner].timezone for this source
+allow_inside_git_tree = false
+llm_eligible = false
+
+# Every key below is optional; the values shown are the defaults.
+[ingest]
+sent_folders = ["Sent Items", "Sent", "Sent Mail"]
+readpst_jobs = 0
+checkpoint_every = 500
+mobile_footers = ["Sent from my iPhone", "Sent from my iPad", "Get Outlook for iOS", "Get Outlook for Android"]
+valedictions = ["Kind regards", "Regards", "Best", "Thanks", "Thank you", "Cheers", "Speak soon"]
+reply_prefixes = ["RE:", "Re:", "AW:", "SV:", "RV:", "Antw:"]
+takeout_excluded_labels = ["Chat", "Drafts", "Spam", "Trash"]
+extra_attribution_patterns = []
+deny_terms_file = ""
+sensitive_terms = "builtin"
+softeners = ""
+
+[profile]
+exemplars_min = 10
+exemplars_max = 20
+exemplar_words_per_register = 800
+token_budget = 25000
+thin_register_min = 30
+current_source = ""
+never_hit_min_words = 50000
+qual_sample_words = 5000
+qual_max_record_words = 2000
+qual_retries = 2
+llm_ism_lexicon = ""
+# baseline_before = "2023-01-01"   # optional; no default
+
+# Required, complete, only when a source has llm_eligible = true.
+[llm]
+provider = ""
+retention_terms = ""
+training_use = ""
+attestation = ""   # must contain a YYYY-MM-DD date, e.g. "2026-01-31 I confirm ..."

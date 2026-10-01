@@ -1,0 +1,15 @@
+{
+  "id": "F51-T1-cue-00",
+  "body": "See my comments below in red.\n-----Original Message-----\nEarlier message.",
+  "expected": "See my comments below in red.",
+  "rules": [
+    "T1"
+  ],
+  "confidence": "low",
+  "thread": "reply",
+  "html": false,
+  "reason": null,
+  "flags": [
+    "inline_suspected"
+  ]
+}

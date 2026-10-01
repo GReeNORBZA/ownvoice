@@ -1,0 +1,13 @@
+{
+  "id": "F51-T1-quoted",
+  "body": "See my comments below in red.\n-----Original Message-----\n> Earlier message.\n> More text.",
+  "expected": "See my comments below in red.",
+  "rules": [
+    "T1"
+  ],
+  "confidence": "high",
+  "thread": "reply",
+  "html": false,
+  "reason": null,
+  "flags": []
+}

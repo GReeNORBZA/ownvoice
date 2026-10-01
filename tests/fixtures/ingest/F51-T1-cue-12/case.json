@@ -1,0 +1,15 @@
+{
+  "id": "F51-T1-cue-12",
+  "body": "Added INLINE.\n-----Original Message-----\nEarlier message.",
+  "expected": "Added INLINE.",
+  "rules": [
+    "T1"
+  ],
+  "confidence": "low",
+  "thread": "reply",
+  "html": false,
+  "reason": null,
+  "flags": [
+    "inline_suspected"
+  ]
+}

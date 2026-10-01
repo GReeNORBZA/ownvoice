@@ -1,0 +1,10 @@
+{
+  "id": "F33-near",
+  "body": "<div>Owner note.</div><span class=\"moz-cite-prefix\">Owner prose.</span>",
+  "expected": "Owner note.\nOwner prose.",
+  "rules": [],
+  "confidence": "high",
+  "thread": "new",
+  "html": true,
+  "reason": null
+}

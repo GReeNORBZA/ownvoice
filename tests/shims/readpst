@@ -1,0 +1,30 @@
+#!/usr/bin/env python3
+"""Synthetic -r tree. -a omitted after the C6 real attachment-filter probe."""
+import os
+import sys
+from pathlib import Path
+
+if sys.argv[1:] == ["-V"]:
+    print("ReadPST / LibPST v0.6.76")
+    sys.exit(0)
+assert sys.argv[1:10] == ["-r", "-8", "-b", "-q", "-j", "0", "-t", "e", "-o"]
+assert len(sys.argv) == 12
+root = Path(sys.argv[10])
+assert root.name == "extract" and root.is_dir()
+assert Path(sys.argv[11]).read_bytes().startswith(b"!BDN")
+if os.environ.get("PST_FAIL"):
+    print("Error opening File", file=sys.stderr)
+    sys.exit(1)
+for name, identifier in [("Sent Items", "sent"), ("PrivateFolder", "other"), ("Sent/Sent", "nested")]:
+    folder = root / name
+    folder.mkdir(parents=True, exist_ok=True)
+    (folder / "mbox").write_text(
+        "From MAILER-DAEMON Tue Jan 20 01:30:00 2026\n"
+        "From: MAILER-DAEMON\nTo: Jane Doe; John Roe\n"
+        f"Message-ID: <{identifier}@example.com>\n"
+        "Date: Tue, 20 Jan 2026 01:30:00 +0000\n\n"
+        f"We should review the {identifier} proposal before proceeding.\n\n")
+if os.environ.get("PST_FOLDER_ERROR"):
+    folder = root / "Sent/Unreadable"
+    folder.mkdir()
+    (folder / "mbox").write_text("From synthetic\nContent-Type: multipart/mixed; boundary=x\n\n--x\n\ntruncated")

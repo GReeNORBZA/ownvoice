@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "name": "write-in-voice",
+  "required_brief_fields": [
+    "audience",
+    "medium",
+    "formality",
+    "length",
+    "purpose",
+    "facts",
+    "must_include",
+    "must_avoid"
+  ],
+  "recipient_classes": [
+    "personal",
+    "professional-warm",
+    "colleague",
+    "client",
+    "vendor",
+    "cold",
+    "group",
+    "unknown"
+  ],
+  "media": [
+    "email",
+    "article",
+    "blog",
+    "linkedin",
+    "doc",
+    "proposal"
+  ],
+  "unknown_email_formality": {
+    "1": "personal",
+    "2": "professional-warm",
+    "3": "client",
+    "4": "cold",
+    "5": "cold"
+  },
+  "non_email_register": "article",
+  "formality_5": "formal greeting and sign-off from editorial rules for email",
+  "max_iterations": 3,
+  "lint_findings_exit": 4,
+  "lint_success_exit": 0,
+  "inputs": [
+    "voice-profile.md",
+    "exemplars.json",
+    "editorial-rules.md",
+    "profile-stats.json"
+  ],
+  "paths": "ownvoice config show --format json",
+  "profile_brief": {
+    "function": "workflow.brief_sections(profile_text, register)",
+    "subcommand": "brief-sections --profile PROFILE --register REGISTER",
+    "sections": [
+      "## Core voice",
+      "### <register> under ## 2. Per register",
+      "## 3. Edit-delta tendencies",
+      "## 5. Anti-patterns"
+    ],
+    "boundary": "next heading of equal or higher level",
+    "excluded": ["§0", "§1", "§4", "§6", "Per-source contrast", "other registers"],
+    "missing_core_voice": "Core voice: not in this profile; rebuild it with voice-profile-build.",
+    "missing_required_section": "stop with a contract diagnostic naming the heading"
+  },
+  "output": "draft plus one-line lint result, remaining findings and justified warnings",
+  "stop_conditions": [
+    "invalid brief (all errors together)",
+    "missing or invalid input",
+    "lint exit other than 0 or 4",
+    "three lint passes"
+  ],
+  "stats_only": "no exemplars or phrase tables in model context",
+  "retention": "final lint JSON retained in private session directory"
+}

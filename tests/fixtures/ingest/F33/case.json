@@ -1,0 +1,12 @@
+{
+  "id": "F33",
+  "body": "<div>Owner note.</div><div class=\"moz-cite-prefix\">On Tuesday wrote:</div><blockquote>quote</blockquote>",
+  "expected": "Owner note.",
+  "rules": [
+    "H5"
+  ],
+  "confidence": "high",
+  "thread": "reply",
+  "html": true,
+  "reason": null
+}

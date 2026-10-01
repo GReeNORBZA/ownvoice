@@ -1,0 +1,14 @@
+{
+  "id": "F51-T1-negative-00",
+  "body": "Thanks, see you tomorrow.\n-----Original Message-----\nEarlier message.",
+  "expected": "Thanks, see you tomorrow.",
+  "scrubbed_expected": "[NAME], see you tomorrow.",
+  "rules": [
+    "T1"
+  ],
+  "confidence": "high",
+  "thread": "reply",
+  "html": false,
+  "reason": null,
+  "flags": []
+}

@@ -1,0 +1,11 @@
+{
+  "id": "F17",
+  "body": "calendar sentinel",
+  "expected": null,
+  "rules": [],
+  "confidence": "high",
+  "thread": "new",
+  "html": false,
+  "reason": "non_mail_item",
+  "mime": "text/calendar"
+}

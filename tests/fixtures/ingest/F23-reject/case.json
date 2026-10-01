@@ -1,0 +1,11 @@
+{
+  "id": "F23-reject",
+  "body": "��x",
+  "expected": null,
+  "rules": [],
+  "confidence": "high",
+  "thread": "new",
+  "html": false,
+  "reason": "decode_error",
+  "bad_bytes": true
+}

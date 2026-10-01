@@ -1,0 +1,10 @@
+{
+  "id": "F39-outlook",
+  "body": "<p class=\"MsoNormal\">First paragraph.<o:p></o:p></p><p class=\"MsoNormal\">&nbsp;<o:p></o:p></p><p>Second paragraph.</p><p>&nbsp;</p><p>Third paragraph.</p>",
+  "expected": "First paragraph.\n\nSecond paragraph.\n\nThird paragraph.",
+  "rules": [],
+  "confidence": "high",
+  "thread": "new",
+  "html": true,
+  "reason": null
+}

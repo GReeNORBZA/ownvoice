@@ -1,0 +1,11 @@
+{
+  "id": "F46-prefix",
+  "body": "Owner note.",
+  "expected": "Owner note.",
+  "rules": [],
+  "confidence": "high",
+  "thread": "reply",
+  "html": false,
+  "reason": null,
+  "subject": "SV: edited"
+}

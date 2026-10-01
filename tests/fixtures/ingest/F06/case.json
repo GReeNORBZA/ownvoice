@@ -1,0 +1,12 @@
+{
+  "id": "F06",
+  "body": "<div>Owner note.</div><div class=\"gmail_quote\">secret quote</div>",
+  "expected": "Owner note.",
+  "rules": [
+    "H3"
+  ],
+  "confidence": "high",
+  "thread": "reply",
+  "html": true,
+  "reason": null
+}

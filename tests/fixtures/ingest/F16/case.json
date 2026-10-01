@@ -1,0 +1,11 @@
+{
+  "id": "F16",
+  "body": ">From the start we agreed.",
+  "expected": "From the start we agreed.",
+  "rules": [],
+  "confidence": "high",
+  "thread": "new",
+  "html": false,
+  "reason": null,
+  "mboxrd": true
+}
